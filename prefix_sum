@@ -1,0 +1,12 @@
+l=list(map(int,input().split()))
+p_s=[sum(l[ : i+1]) for i in range(len(l))]
+q=int(input())
+for i in range(q):
+    l=int(input())
+    r=int(input())
+    if(l==1):
+        res=p_s[r-1]
+    else:
+        res=p_s[r-1]-p_s[l-2]
+    print("result=",res)
+
