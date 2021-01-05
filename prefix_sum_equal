@@ -1,0 +1,10 @@
+l=list(map(int,input().split()))
+p_s=[sum(l[ : i+1]) for i in range(len(l))]
+n=len(p_s)
+c=0
+for i in range(1,len(p_s)-1):
+    if(p_s[i-1]==(p_s[n-1]-p_s[i])):
+        print("element=",l[i],"  index=",i)
+        c+=1
+if(c==0):
+    print("-1")
