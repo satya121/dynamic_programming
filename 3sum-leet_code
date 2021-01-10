@@ -1,0 +1,23 @@
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        s=0
+        l=sorted(nums)
+        re=[]
+        for i in range(len(l)):
+            j=i+1
+            k=len(l)-1
+            temp=s-l[i]
+           
+            while(j<k):
+                if(l[j]+l[k])<temp:
+                    j+=1
+                elif(l[j]+l[k])>temp:
+                    k-=1
+                else:
+                    t=[l[i],l[j],l[k]]
+                    if(t not in re):
+                        re.append(t)
+                    j+=1
+                    k-=1
+        return re
+        
