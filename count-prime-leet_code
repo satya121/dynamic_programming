@@ -1,0 +1,17 @@
+class Solution:   
+    def countPrimes(self, n: int) -> int:
+        N=1500001
+        sei=[1]*N
+        sei_count=[0]
+        sei[0],sei[1]=0,0
+        def gen_seive():
+             for i in range(2,int(N**0.5)+1):
+                    if(sei[i]==1):
+                         for j in range(i*i,N,i):
+                              sei[j]=0
+             for i in range(1,N):
+                 sei_count.append(sei[i]+sei_count[i-1])
+        gen_seive()
+        if(n==0):
+            return 0
+        return(sei_count[n-1])
