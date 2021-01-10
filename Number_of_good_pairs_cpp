@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        unordered_map<int,int>dic;
+        for(auto i:nums)
+            dic[i]+=1;
+        int sum=0;
+        for(auto i:dic)
+            sum=sum+(i.second*(i.second-1))/2;
+        return sum;
+    }
+};
