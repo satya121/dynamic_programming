@@ -1,0 +1,19 @@
+l=[12,3,6,9,4,1,5]
+s=25
+l=sorted(l)
+re=[]
+for i in range(len(l)):
+    j=i+1
+    k=len(l)-1
+    temp=s-l[i]
+    while(j<k):
+        if(l[j]+l[k])<temp:
+            j+=1
+        elif(l[j]+l[k])>temp:
+            k-=1
+        else:
+            t=[l[i],l[j],l[k]]
+            re.append(t)
+            print(re)
+            j+=1
+            k-=1
