@@ -1,0 +1,31 @@
+N=1000001
+sei=[1]*N
+sei[0],sei[1]=0,0
+def gen_seive():
+    for i in range(2,int(N**0.5)+1):
+        if(sei[i]==1):
+            for j in range(i*i,N,i):
+                sei[j]=0
+def seg_sei():
+    l,r=map(int,input().split())
+    s_sei=[]
+    gen_seive()
+    i=2
+    while(i*i<=r):
+        if(sei[i]==1):
+            s_sei.append(i)
+        i+=1
+    size=r-l+1
+    dummy=[1]*size
+    for i in s_sei:
+        first_multiple=(l//i)+i
+        if(l%i):
+            first_multiple+=i
+        for j in range(max(first_multiple,i*i),r+1,i):
+            dummy[j-l]=0
+    c=0
+    for i in range(l,r+1):
+        if(dummy[i-l]==1):
+            c+=1
+    print(c)
+seg_sei()
