@@ -1,0 +1,15 @@
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        i=0
+        c=0
+        d={0:1}
+        for x in nums:
+            i+=x
+            if(i-k) in d:
+                c+=d[i-k]
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        return c
+        
