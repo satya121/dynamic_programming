@@ -1,0 +1,23 @@
+try:
+    t=int(input())
+    for i in range(t):
+        ele,v=map(int,input().split())
+        n1=list(map(int,input().split()))
+        n=sorted(n1)
+        count=0
+        for i in range(len(n)):
+            j=i+1
+            k=len(n)-1
+            t=v-n[i]
+            while j<k:
+                if(n[j]+n[k]<t):
+                    count+=1
+                    k=k-1
+                    if(j==k):
+                        j+=1
+                        k=len(n)-1
+                if(n[j]+n[k]>=t):
+                    k=k-1
+        print(count)
+except:
+    pass
