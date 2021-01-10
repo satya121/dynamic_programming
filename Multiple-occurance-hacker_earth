@@ -1,0 +1,17 @@
+t=int(input())
+for k in range(t):
+    a=int(input())
+    d={}
+    lis=list(map(int,input().split()))
+    for i in range(len(lis)):
+        b=lis[i]
+        if b in d:
+            d[b].append(i)
+        else:
+            d[b]=[]
+            d[b].append(i)
+    re=d.values()
+    s=0
+    for i in re:
+        s+=i[-1]-i[0]
+    print(s)
