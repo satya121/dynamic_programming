@@ -1,0 +1,22 @@
+n=1000001
+se=[1]*n
+pr=[0]*n
+def seive():
+        i=2
+        while(i*i<=n):
+                if(se[i]==1):
+                        for j in range(i*i,n,i):
+                                se[j]=0
+                i+=1
+        se[0]=0
+        se[1]=0
+        for i in range(2,n):
+                if(se[i]==1):
+                        pr[i]=pr[i-1]+i
+                else:
+                        pr[i]=pr[i-1]
+t=int(input())
+seive()
+for _ in range(t):
+        l,r=map(int,input().split())
+        print(pr[r]-pr[l-1])
