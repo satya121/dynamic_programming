@@ -1,0 +1,38 @@
+N=1000001
+sei=[i for i in range(N)]
+sei[0],sei[1]=0,0
+def gen_seive():
+    for i in range(2,int(N**0.5)+1):
+        if(sei[i]==i):
+            for j in range(i*i,N,i):
+                if(sei[j]==j):
+                    sei[j]=i
+gen_seive()
+q=int(input())
+for _ in range(q):
+    d={2:0}
+    a=int(input())
+    x=a
+    
+    if(a==sei[a]):
+        print("2^0")
+    else:
+        while(x!=1):
+            x=x//sei[a]
+            if sei[a] in d:
+                d[sei[a]]+=1
+            else:
+                d[sei[a]]=1
+            a=x
+        l=sorted(d)
+        for i in range(len(l)):
+            if(i==len(l)-1):
+                print(l[i],end='')
+                print("^",end='')
+                print(d[l[i]],end='')
+            else:
+                print(l[i],end='')
+                print("^",end='')
+                print(d[l[i]],end='')
+                print("*",end='')
+        print()
